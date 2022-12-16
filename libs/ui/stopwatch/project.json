@@ -1,0 +1,23 @@
+{
+  "name": "ui-stopwatch",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/stopwatch/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui/stopwatch/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}

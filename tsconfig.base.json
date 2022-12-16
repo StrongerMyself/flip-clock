@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@flip-clock/ui/clock": ["libs/ui/clock/src/index.ts"],
-      "@flip-clock/ui/digit": ["libs/ui/digit/src/index.ts"]
+      "@flip-clock/ui/digit": ["libs/ui/digit/src/index.ts"],
+      "@flip-clock/ui/stopwatch": ["libs/ui/stopwatch/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
