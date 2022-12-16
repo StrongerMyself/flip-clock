@@ -1,4 +1,4 @@
-import { useStateStopwatch } from '@flip-clock/state/stopwatch';
+import { selectStateStopwatch, useStateStopwatch } from '@flip-clock/state/stopwatch';
 import { UiStopwatch } from '@flip-clock/ui/stopwatch';
 import { useEffect } from 'react';
 
@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 export interface FeatureStopwatchProps {}
 
 export function FeatureStopwatch(props: FeatureStopwatchProps) {
-  const state = useStateStopwatch()
+  const state = useStateStopwatch(selectStateStopwatch)
 
   useEffect(() => {
     if (state.status === 'play') {

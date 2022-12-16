@@ -54,3 +54,12 @@ const onTimer = () => {
     onTimer()
   })
 }
+
+export const selectStateStopwatch = (state: StateStopwatch) => ({
+  status: state.status,
+  current: state.current,
+  start: state.start,
+  pause: state.pause,
+  stop: state.stop,
+  toggle: state.toggle,
+})

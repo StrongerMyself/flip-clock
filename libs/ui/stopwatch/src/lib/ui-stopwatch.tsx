@@ -1,5 +1,4 @@
 import { UiDigit } from '@flip-clock/ui/digit';
-import { useEffect } from 'react';
 import styles from './ui-stopwatch.module.scss';
 
 export interface UiStopwatchProps {

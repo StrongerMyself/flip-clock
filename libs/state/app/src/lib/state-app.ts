@@ -14,3 +14,8 @@ export const useStateApp = create(persist<StateApp>(() => ({
     setState({ scrollTop: elem.scrollTop })
   }
 })))
+
+export const selectStateApp = (state: StateApp) => ({
+  scrollTop: state.scrollTop,
+  onScroll: state.onScroll,
+})
