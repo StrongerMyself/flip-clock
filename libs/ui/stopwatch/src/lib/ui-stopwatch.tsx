@@ -20,10 +20,6 @@ export function UiStopwatch({
   toggle,
 }: UiStopwatchProps) {
 
-  useEffect(() => {
-    return stop
-  }, [])
-
   const sec = Math.floor(current / 1000)
   const min = Math.floor(sec / 60)
   const hours = Math.floor(min / 60)
