@@ -29,7 +29,7 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/.eslintrc.json"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },
   "generators": {
     "@nrwl/react": {
@@ -42,7 +42,8 @@
         "e2eTestRunner": "none"
       },
       "component": {
-        "style": "scss"
+        "style": "scss",
+        "export": false
       },
       "library": {
         "style": "scss",
