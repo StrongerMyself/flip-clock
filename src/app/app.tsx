@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useToggleFullscreen } from './fullscreen';
 import { FeatureStopwatch } from '@flip-clock/feature/stopwatch';
 import { UiClock } from '@flip-clock/ui/clock';
