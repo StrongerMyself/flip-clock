@@ -1,0 +1,32 @@
+{
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "fullscreen",
+    "scope": "/flip-clock/",
+    "start_url": "/flip-clock/",
+    "name": "flip-clock",
+    "short_name": "flip-clock",
+    "description": "",
+    "icons": [
+        {
+            "src": "/flip-clock/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/flip-clock/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/flip-clock/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/flip-clock/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
