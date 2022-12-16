@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef } from 'react';
 import { useToggleFullscreen } from './fullscreen';
 import { UiClock } from '@flip-clock/ui/clock';
-import { UiStopwatch } from '@flip-clock/ui/stopwatch';
 import styles from './app.module.scss';
+import { FeatureStopwatch } from '@flip-clock/feature/stopwatch';
 
 export function App() {
   const refRoot = useRef<HTMLDivElement>(null)
@@ -22,7 +22,7 @@ export function App() {
         <UiClock />
       </div>
       <div className={styles.screen}>
-        <UiStopwatch />
+        <FeatureStopwatch />
       </div>
       {/* <div className={styles.screen}>
         <Timer />
