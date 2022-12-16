@@ -13,7 +13,7 @@ export const useStateApp = create(persist<StateApp>(() => ({
     const elem = event.currentTarget as HTMLDivElement
     setState({ scrollTop: elem.scrollTop })
   }
-})))
+}), { name: 'state-app' }))
 
 export const selectStateApp = (state: StateApp) => ({
   scrollTop: state.scrollTop,

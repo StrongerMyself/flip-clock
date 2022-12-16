@@ -40,7 +40,7 @@ export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
       start()
     }
   }
-})))
+}), { name: 'state-stopwatch' }))
 
 const onTimer = () => {
   const { getState, setState } = useStateStopwatch
