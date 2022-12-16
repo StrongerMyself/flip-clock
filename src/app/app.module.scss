@@ -1,1 +1,26 @@
-/* Your styles goes here. */
+.root {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: linear-gradient(0deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.1) 100%);
+}
+
+.wrapper {
+  position: relative;
+}
