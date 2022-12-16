@@ -37,7 +37,9 @@
         "style": "scss",
         "linter": "eslint",
         "bundler": "vite",
-        "babel": true
+        "babel": true,
+        "routing": false,
+        "e2eTestRunner": "none"
       },
       "component": {
         "style": "scss"
@@ -45,9 +47,17 @@
       "library": {
         "style": "scss",
         "linter": "eslint",
-        "unitTestRunner": "vitest"
+        "unitTestRunner": "vitest",
+        "bundler": "none"
       }
     }
   },
-  "defaultProject": "flip-clock"
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "flip-clock",
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  }
 }
