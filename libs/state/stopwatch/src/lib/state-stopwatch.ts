@@ -1,4 +1,5 @@
 import create from 'zustand'
+import { persist } from 'zustand/middleware'
 
 export interface StateStopwatch {
   current: number
@@ -12,7 +13,7 @@ export interface StateStopwatch {
 let refTimer = 0
 let start = 0
 
-export const useStateStopwatch = create<StateStopwatch>((set, get) => ({
+export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
   current: 0,
   status: 'stop',
   start: () => {
@@ -39,7 +40,7 @@ export const useStateStopwatch = create<StateStopwatch>((set, get) => ({
       start()
     }
   }
-}))
+})))
 
 const onTimer = () => {
   const { getState, setState } = useStateStopwatch
