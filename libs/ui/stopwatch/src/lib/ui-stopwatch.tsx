@@ -4,7 +4,7 @@ import styles from './ui-stopwatch.module.scss';
 export interface UiStopwatchProps {
   status: 'stop' | 'play' | 'pause'
   current: number
-  start: () => void
+  play: () => void
   pause: () => void
   stop: () => void
   toggle: () => void
@@ -13,7 +13,7 @@ export interface UiStopwatchProps {
 export function UiStopwatch({
   status,
   current,
-  start,
+  play,
   pause,
   stop,
   toggle,
@@ -32,13 +32,13 @@ export function UiStopwatch({
       </div>
       <div className={styles.control}>
         {status === 'stop' && (
-          <button onClick={start}>start</button>
+          <button onClick={play}>start</button>
         )}
         {status === 'play' && (
           <button onClick={pause}>pause</button>
         )}
         {status === 'pause' && (
-          <button onClick={start}>play</button>
+          <button onClick={play}>play</button>
         )}
         {current > 0 && (
           <button onClick={stop}>stop</button>

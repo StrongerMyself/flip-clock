@@ -2,25 +2,26 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
 export interface StateStopwatch {
+  start: number
   current: number
   status: 'stop' | 'play' | 'pause'
-  start: () => void
+  play: () => void
   pause: () => void
   stop: () => void
   toggle: () => void
+  load: () => void
 }
 
 let refTimer = 0
-let start = 0
 
 export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
+  start: 0,
   current: 0,
   status: 'stop',
-  start: () => {
+  play: () => {
     const { current } = get()
     const d = Date.now()
-    start = d - current,
-    set({ status: 'play' })
+    set({ start: d - current, status: 'play' })
     onTimer()
   },
   pause: () => {
@@ -29,16 +30,18 @@ export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
   },
   stop: () => {
     window.cancelAnimationFrame(refTimer)
-    start = 0
-    set({ current: 0, status: 'stop' })
+    set({ start: 0, current: 0, status: 'stop' })
   },
   toggle: () => {
-    const { start, pause, status } = get()
+    const { play, pause, status } = get()
     if (status === 'play') {
       pause()
     } else {
-      start()
+      play()
     }
+  },
+  load: () => {
+    onTimer()
   }
 }), { name: 'state-stopwatch' }))
 
@@ -50,16 +53,17 @@ const onTimer = () => {
 
   refTimer = requestAnimationFrame(() => {
     const d = Date.now()
-    setState({ current: d - start })
+    setState((state) => ({ current: d - state.start }))
     onTimer()
   })
 }
 
 export const selectStateStopwatch = (state: StateStopwatch) => ({
-  status: state.status,
   current: state.current,
-  start: state.start,
+  status: state.status,
+  play: state.play,
   pause: state.pause,
   stop: state.stop,
   toggle: state.toggle,
+  load: state.load,
 })

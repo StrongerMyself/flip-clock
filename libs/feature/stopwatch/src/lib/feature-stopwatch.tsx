@@ -9,9 +9,7 @@ export function FeatureStopwatch(props: FeatureStopwatchProps) {
   const state = useStateStopwatch(selectStateStopwatch)
 
   useEffect(() => {
-    if (state.status === 'play') {
-      state.start()
-    }
+    state.load()
   }, [])
 
   return (
