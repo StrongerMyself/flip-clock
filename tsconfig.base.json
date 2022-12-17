@@ -16,11 +16,14 @@
     "baseUrl": ".",
     "paths": {
       "@flip-clock/feature/stopwatch": ["libs/feature/stopwatch/src/index.ts"],
+      "@flip-clock/feature/timer": ["libs/feature/timer/src/index.ts"],
       "@flip-clock/state/app": ["libs/state/app/src/index.ts"],
       "@flip-clock/state/stopwatch": ["libs/state/stopwatch/src/index.ts"],
+      "@flip-clock/state/timer": ["libs/state/timer/src/index.ts"],
       "@flip-clock/ui/clock": ["libs/ui/clock/src/index.ts"],
       "@flip-clock/ui/digit": ["libs/ui/digit/src/index.ts"],
-      "@flip-clock/ui/stopwatch": ["libs/ui/stopwatch/src/index.ts"]
+      "@flip-clock/ui/stopwatch": ["libs/ui/stopwatch/src/index.ts"],
+      "@flip-clock/ui/timer": ["libs/ui/timer/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

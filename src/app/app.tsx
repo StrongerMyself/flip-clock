@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useToggleFullscreen } from './fullscreen';
 import { FeatureStopwatch } from '@flip-clock/feature/stopwatch';
+import { FeatureTimer } from '@flip-clock/feature/timer';
 import { UiClock } from '@flip-clock/ui/clock';
 import { selectStateApp, useStateApp } from '@flip-clock/state/app';
 import styles from './app.module.scss';
@@ -27,9 +28,9 @@ export function App() {
       <div className={styles.screen}>
         <FeatureStopwatch />
       </div>
-      {/* <div className={styles.screen}>
-        <Timer />
-      </div> */}
+      <div className={styles.screen}>
+        <FeatureTimer />
+      </div>
     </div>
   )
 }
