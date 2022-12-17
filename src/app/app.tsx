@@ -66,6 +66,9 @@ export function App() {
         />
       </div>
       <div className={styles.screen} onClick={onClickScreen}>
+        <UiClock hideSecond />
+      </div>
+      <div className={styles.screen} onClick={onClickScreen}>
         <UiClock />
       </div>
       <div className={styles.screen} onClick={onClickScreen}>

@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 // import DateView from './date-view/date-view';
 import styles from './ui-clock.module.scss';
 
-/* eslint-disable-next-line */
-export interface UiClockProps {}
+export interface UiClockProps {
+  hideSecond?: boolean
+}
 
-export function UiClock(props: UiClockProps) {
+export function UiClock({ hideSecond = false }: UiClockProps) {
   const [date, setDate] = useState(() => new Date())
   const refTimer = useRef<number>()
 
@@ -27,10 +28,12 @@ export function UiClock(props: UiClockProps) {
   return (
     <div className={styles.wrapper}>
       {/* <DateView date={date} />  */}
-      <div className={styles.timer}>
+      <div className={`${styles.timer} ${hideSecond ? styles.hideSecond : ''}`}>
         <UiDigit number={date.getHours()}/>
         <UiDigit number={date.getMinutes()}/>
-        <UiDigit number={date.getSeconds()}/>
+        {!hideSecond && (
+          <UiDigit number={date.getSeconds()}/>
+        )}
       </div>
     </div>
   )
