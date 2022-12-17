@@ -62,7 +62,7 @@ export function App() {
           visible={visible}
           active={slide}
           setActive={scrollToSlide}
-          length={3}
+          length={4}
         />
       </div>
       <div className={styles.screen} onClick={onClickScreen}>
