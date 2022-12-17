@@ -9,7 +9,7 @@ export interface StateStopwatch {
   pause: () => void
   stop: () => void
   toggle: () => void
-  load: () => void
+  loop: () => void
 }
 
 let refTimer = 0
@@ -19,10 +19,10 @@ export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
   current: 0,
   status: 'stop',
   play: () => {
-    const { current } = get()
+    const { current, loop } = get()
     const d = Date.now()
     set({ start: d - current, status: 'play' })
-    onTimer()
+    loop()
   },
   pause: () => {
     window.cancelAnimationFrame(refTimer)
@@ -40,23 +40,17 @@ export const useStateStopwatch = create(persist<StateStopwatch>((set, get) => ({
       play()
     }
   },
-  load: () => {
-    onTimer()
+  loop: () => {
+    refTimer = requestAnimationFrame(() => {
+      const { start, status, loop } = get()
+      if (status == 'play') {
+        const d = Date.now()
+        set({ current: d - start })
+        loop()
+      }
+    })
   }
 }), { name: 'state-stopwatch' }))
-
-const onTimer = () => {
-  const { getState, setState } = useStateStopwatch
-  const { status } = getState()
-
-  if (status !== 'play') return
-
-  refTimer = requestAnimationFrame(() => {
-    const d = Date.now()
-    setState((state) => ({ current: d - state.start }))
-    onTimer()
-  })
-}
 
 export const selectStateStopwatch = (state: StateStopwatch) => ({
   current: state.current,
@@ -65,5 +59,5 @@ export const selectStateStopwatch = (state: StateStopwatch) => ({
   pause: state.pause,
   stop: state.stop,
   toggle: state.toggle,
-  load: state.load,
+  loop: state.loop,
 })

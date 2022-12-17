@@ -9,7 +9,7 @@ export function FeatureStopwatch(props: FeatureStopwatchProps) {
   const state = useStateStopwatch(selectStateStopwatch)
 
   useEffect(() => {
-    state.load()
+    state.loop()
   }, [])
 
   return (
